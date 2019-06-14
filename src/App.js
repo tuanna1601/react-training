@@ -1,5 +1,5 @@
 import React from 'react';
-import UserList from './modules/users/components/UserList.container';
+import UserList from './containers/UserList.container';
 
 export default () => {
   return <UserList />;

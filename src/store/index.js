@@ -3,11 +3,8 @@ import thunk from 'redux-thunk';
 
 import { reducer as userReducer } from './reducer';
 
-const aReducer = (state = { b: 'c' }, action) => state;
-
 const reducer = combineReducers({
-  user: userReducer,
-  a: aReducer
+  user: userReducer
 });
 
 const composeEnhancers =

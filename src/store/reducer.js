@@ -1,23 +1,7 @@
-import { ADD_USER, EDIT_USER, DELETE_USER } from './actions';
+import { ADD_USER, EDIT_USER, DELETE_USER, GET_USERS } from './actions';
 
 const initialState = {
-  users: [
-    {
-      name: 'Helen',
-      birthday: '1999-01-10',
-      gender: 'female'
-    },
-    {
-      name: 'Paris',
-      birthday: '1999-02-12',
-      gender: 'male'
-    },
-    {
-      name: 'Richard',
-      birthday: '1999-01-19',
-      gender: 'male'
-    }
-  ]
+  users: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -39,16 +23,16 @@ export const reducer = (state = initialState, action) => {
           })
         ]
       };
-    case DELETE_USER: {
-      const { users } = state;
-      const {
-        payload: { userId }
-      } = action;
+    case DELETE_USER:
       return {
         ...state,
-        users: [...users.slice(0, userId), ...users.slice(userId + 1)]
+        users: action.payload.users
       };
-    }
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload.users
+      };
     default:
       return state;
   }
